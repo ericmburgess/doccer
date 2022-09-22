@@ -1,0 +1,7 @@
+- id: doccer
+  name: doccer
+  description: "Documentation generator for python projects."
+  entry: "doccer_hook"
+  language: python
+  files: pyproject.toml
+  always_run: true

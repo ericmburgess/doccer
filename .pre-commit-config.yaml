@@ -1,0 +1,24 @@
+default_stages: [commit]
+
+repos:
+
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.3.0
+    hooks:
+      - id: check-yaml
+      - id: end-of-file-fixer
+      - id: trailing-whitespace
+
+  - repo: https://github.com/psf/black
+    rev: 22.8.0
+    hooks:
+      - id: black
+
+  - repo: local
+    hooks:
+      - id: conventional-commits
+        name: Conventional Commits
+        description: Check Conventional Commits specification is respected
+        entry: ./.githooks/conventional-commit.sh
+        language: script
+        stages: [commit-msg]

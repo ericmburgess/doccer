@@ -1,0 +1,47 @@
+====
+{{ pyproject_data.project.name }} Sample Documentation
+====
+
+This is a sample root document for the {{ pyproject_data.project.name }} project. It was generated
+by ``doccer``.
+
+What is {{ pyproject_data.project.name }}?
+----
+
+Include a brief description of the project here.
+
+
+How do I get set up?
+----
+
+* cloning
+* installing the environment
+* installing pre-commit hooks
+* running tests
+
+
+Linking to subpages
+----
+`Here <./docs/subpage.rst>`_ is how you do that.
+
+
+Auto-generated docs
+----
+{%  for module in py_modules %}
+.. automodule:: {{ pyproject_data.project.name }}
+   :members:
+{% endfor %}
+
+
+Who do I talk to?
+----
+
+{% for author in pyproject_data.project.authors %}
+* {{ author.name }} ({{ author.email }})
+{% endfor %}
+
+{% if pyproject_data.project.license.text %}
+License
+----
+{{ pyproject_data.project.license.text }}
+{%  endif %}
