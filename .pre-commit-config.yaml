@@ -22,3 +22,13 @@ repos:
         entry: ./.githooks/conventional-commit.sh
         language: script
         stages: [commit-msg]
+
+  - repo: https://github.com/ericmburgess/doccer
+    rev: v0.1.1
+    hooks:
+      - id: doccer
+        name: doccer
+        description: "Documentation generator for Python projects"
+        entry: "doccer_hook"
+        language: python
+        always_run: true

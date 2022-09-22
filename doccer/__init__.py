@@ -10,7 +10,7 @@ from typing import Optional, TypedDict
 from jinja2 import Environment, PackageLoader
 import tomli
 
-from doccer.types import EmailContact
+from doccer.types import EmailContact, ProjectType
 
 
 def _jinja_env() -> Environment:
@@ -151,7 +151,7 @@ def _load_config(pyproject: os.PathLike) -> Optional[DocConfig]:
 
         src_dir = magdocs_config.get("doc_src", "docs/src")
 
-        derived_config: DerivedConfigData = {}
+        derived_config = {}
         if toml["project"].get("authors"):
             derived_config["author"] = toml["project"]["authors"][0]
         else:
